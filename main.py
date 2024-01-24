@@ -24,3 +24,33 @@
 # Github Fork (repozitorija kopija) - https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
 # Klonēt repozitoriju - hhttps://code.visualstudio.com/docs/sourcecontrol/intro-to-git
 
+
+import random
+def throw_dice():
+    return random.randint(1, 6)
+def check_ladders(x):
+        blue_ladders = {18:7, 67:46, 80:69, 74:63}
+        red_ladders = {15:24, 39:48, 33:52, 87:96}
+        
+        if x in blue_ladders:
+            return blue_ladders[x], "blue"
+        elif x in red_ladders:
+            return red_ladders[x], "red"
+        else:
+            return x   
+
+player1_pos = 1
+player2_pos = 1
+
+while player1_pos < 100 and player2_pos < 100:
+    random_roll =throw_dice
+player1_pos, ladder_color1=check_ladders(player1_pos +random_roll)
+
+if player1_pos > 99:
+    print("Playerr 1 wins")
+
+random_roll = throw_dice
+player2_pos,ladder_color2 = check_ladders(player2_pos+ random_roll)
+
+if player2_pos > 99:
+    print("Player 2 wins")
